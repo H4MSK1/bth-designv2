@@ -1,0 +1,225 @@
+/*!
+ * LESS version of the stylesheet for design kmom01.
+ *
+ * This stylesheet is for the design course and kmom01. Its intention is to
+ * use kmom01.css and lessify the style and use this as a wrapper for the new
+ * style.
+ */
+/**
+ * Internal self contained modules, save in directory module/.
+ */
+//@import "module/kmom01.less";
+@import 'module/stylechooser.less';
+// Just an example module
+/**
+ * Base style to affect HTML elements on a general scale.
+ */
+@import 'base/base_kmom03.less';
+//@import "base/base.less";
+/**
+ * Layout style for general structure of header, navbar, main, footer
+ * and other regions of the page including route specific styles.
+ */
+@import 'layout/layout_default.less';
+@import 'layout/responsive_default.less';
+//@import "layout/layout.less";
+//@import "layout/responsive.less";
+@import 'layout/regions.less';
+// To add style for ?regions
+/**
+ * My own settings, not currently in their own module.
+ */
+@import 'normalize.css/normalize.less';
+
+/**
+ * Font Awesome.
+ */
+@import '@fortawesome/fontawesome-free/less/fontawesome.less';
+@import '@fortawesome/fontawesome-free/less/solid.less';
+@import '@fortawesome/fontawesome-free/less/brands.less';
+
+/**
+fonts Quicksand / Cardo / Noto, 
+*/
+@import url('https://fonts.googleapis.com/css?family=Cardo|Noto+Sans+TC|Quicksand&display=swap');
+
+/**
+ * A responsive menu.
+ */
+@import '@desinax/responsive-menu/less/responsive-menu.less';
+@import '@desinax/responsive-menu/less/media-queries.less';
+
+/** 
+* import horizontal grid 
+*/
+@import '@desinax/typographic-grid/less/typography-font-families.less';
+@import '@desinax/typographic-grid/less/typography-defaults.less';
+
+/**
+ * Import the vertical grid.
+ */
+@import '@desinax/vertical-grid/less/grid.less';
+
+/**
+* import vgrid.less
+*/
+@import 'layout/vgrid.less';
+
+/**
+* import hgrid.less
+*/
+@import 'layout/hgrid.less';
+
+/**
+* typographics
+*/
+
+// Magic number and default fontsize, together makes up base lineheight
+@magicNumber: 22px;
+@fontSizeBody: 18px;
+
+// Set font family to use
+@fontFamilyHeadings: 'Cardo', cursive;
+
+// layout design colors.
+@htmlBackground: linear-gradient(
+    rgba(255, 60, 60, 0.637),
+    rgba(255, 202, 57, 0.349)
+  ),
+  url(../img/circle-blues.png) repeat;
+@bodyColors: #fff;
+@siteLogoTextColor: #fff;
+@rm-navbarColor: #fff;
+@rmDesktopColor: transparent;
+@rm-submenuColor: rgba(212, 214, 94, 0.336);
+@tocColor: #97a2ad;
+@navbarLinksColor: #000;
+@headerColor: rgba(212, 214, 94, 0.336);
+@ahoverColor: #5c92bb;
+@selectColor: #265172;
+
+.outer-wrap-header {
+  background: @headerColor;
+  color: @navbarLinksColor;
+}
+
+.site-logo-text {
+  text-shadow: 0 -1px 4px #fff, 0 -2px 10px #ff0, 0 -10px 20px #ff8000,
+    0 -18px 40px #f00;
+
+  h2 {
+    margin-top: 5px;
+    border-bottom: 0px;
+  }
+  a {
+    color: @siteLogoTextColor;
+  }
+}
+
+.inner-wrap-main {
+  background-image: linear-gradient(
+    to bottom,
+    rgba(100, 100, 100, 0.8),
+    rgba(243, 243, 243, 0.4)
+  );
+}
+
+.region-flash {
+  img {
+    -webkit-animation-name: thumb;
+    -webkit-animation-duration: 1000ms;
+    -webkit-transform-origin: 50% 50%;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+  }
+}
+
+@-webkit-keyframes thumb {
+  0% {
+    -webkit-transform: rotate(3deg);
+  }
+  50% {
+    -webkit-transform: rotate(-3deg);
+  }
+  100% {
+    -webkit-transform: rotate(3deg);
+  }
+}
+
+@keyframes thumb {
+  0% {
+    -webkit-transform: rotate(3deg);
+  }
+  50% {
+    -webkit-transform: rotate(-3deg);
+  }
+  100% {
+    -webkit-transform: rotate(3deg);
+  }
+}
+
+.article {
+  box-shadow: 0 -1px 4px #fff, 0 -2px 8px #ff0, 0 -5px 8px #ff8000,
+    0 -9px 15px #f00;
+}
+
+.toc {
+  ul {
+    list-style: none;
+  }
+  a {
+    color: @tocColor;
+  }
+}
+
+.rm-desktop {
+  li {
+    background: @rmDesktopColor;
+  }
+  ul,
+  ul {
+    background: @rm-submenuColor !important;
+    a:hover {
+      color: @ahoverColor;
+    }
+  }
+}
+
+.next-previous {
+  color: @tocColor;
+  a {
+    color: @tocColor;
+  }
+}
+
+.breadcrumb-list {
+  ul a {
+    color: @tocColor;
+  }
+}
+
+.next {
+  float: left;
+}
+
+html {
+  background: @htmlBackground;
+
+  ul li a {
+    color: @rm-navbarColor;
+  }
+}
+
+body {
+  color: @bodyColors;
+}
+
+.selected {
+  a {
+    color: @selectColor !important;
+  }
+}
+
+table {
+  color: #000 !important;
+}

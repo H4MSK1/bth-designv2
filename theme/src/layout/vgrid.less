@@ -1,0 +1,284 @@
+@columnWidth: 30;
+@gutterWidth: 10;
+@columns: 24;
+@gridType: "float"; // "flex"
+@sidebarSize: 17;
+@backgroundColor: #333;
+@color: black;
+//@maxWidth: 100%;
+@gridImage: "../img/grid_24x30x10-nomargin.png";
+.vgrid .inner-wrap {
+  // @gridImage: "../img/grid_24x30x10-nomargin.png";
+  //@gridImage: "../../img/grid_12x60x20-nomargin.png";
+  #desinax-vgrid.showGrid(@gridImage);
+
+  &.inner-wrap-header,
+  &.inner-wrap-flash,
+  &.inner-wrap-footer {
+    #desinax-vgrid.showGrid(@gridImage);
+  }
+}
+
+
+// Fuck up burger menu.
+//.rm-navbar li {
+  //text-align: center;
+  //background: white;
+ // #desinax-vgrid.column(24/6);
+//}
+.row {
+  #desinax-vgrid.row();
+  margin-bottom: 1rem;
+}
+
+.region {
+  height: 20rem;
+}
+
+
+
+.inner-wrap {
+  #desinax-vgrid.grid(80%);
+}
+
+.inner-wrap-header {
+  #desinax-vgrid.grid(80%);
+}
+
+.inner-wrap-footer {
+  #desinax-vgrid.grid(80%);
+  
+}
+
+
+.region-header-col-1 {
+  #desinax-vgrid.column(7);
+  img {
+    display: none;
+  }
+}
+
+.region-header-col-2 {
+  #desinax-vgrid.column(13);
+}
+
+.region-header-col-3 {
+  #desinax-vgrid.column(4);
+}
+.region-flash {
+  #desinax-vgrid.column(24);
+  img {
+    object-fit: cover;
+  object-position: 80% 0;
+
+    width: 100%;
+    height: 100%;
+  }
+}
+
+
+
+
+.region-main {
+   #desinax-vgrid.column(@columns * 3 / 4);
+   #desinax-vgrid.push(3);
+
+   &.has-sidebar{
+    #desinax-vgrid.push(0);
+   }
+
+   
+   &.has-sidebar-right {
+    #desinax-vgrid.column(@columns * 3 / 4 - 1);
+
+
+   }
+
+    &.has-sidebar-left.has-sidebar-right {
+    #desinax-vgrid.column(@columns - 5);
+   }
+}
+
+
+
+.region-sidebar-left,
+.region-sidebar-right {
+  
+  #desinax-vgrid.column(@columns * 1 / 4 - 1);
+}
+
+
+.region-sidebar-right {
+  #desinax-vgrid.push(1);
+  h4 {
+    color: black;
+  }
+}
+
+
+
+
+
+
+
+
+
+.region-sidebar-right {
+ #desinax-vgrid.column(6);
+  
+  
+}
+
+
+
+
+
+.toc {
+  #desinax-vgrid.column(5);
+}
+
+.next-previous {
+  #desinax-vgrid.column(17);
+  div {
+    #desinax-vgrid.column(17/2);
+  }
+  a {
+    color: black;
+  }
+  .previous {
+    float: left;
+  }
+}
+
+.selected {
+  a {
+    color: white!important;
+  }
+}
+
+
+
+
+.site-footer {
+  #desinax-vgrid.column(@columns);
+  text-align: center;
+}
+
+.footer-column {
+  #desinax-vgrid.column(24 / 3 - 3);
+  #desinax-vgrid.push(2.9);
+}
+
+
+.footer-column-x {
+  //margin-left: 40%;
+  #desinax-vgrid.push(1);
+}
+
+/** 
+* Responsive.
+*  
+*/
+@media only screen and (max-width: 1100px) {
+  .rm-desktop {
+     display:none;
+  }
+    .footer-column {
+      #desinax-vgrid.push(2.6);
+    }
+
+}
+
+
+
+
+
+@media only screen and (max-width: 1000px) {
+  .region-main {
+    #desinax-vgrid.column(@columns * 3/ 4);
+    #desinax-vgrid.push(0);
+    
+       &.has-sidebar-left.has-sidebar-right {
+          #desinax-vgrid.column(@columns);
+        }
+      }
+    .region-sidebar-left {
+      #desinax-vgrid.column(@columns);
+    }
+
+    .region-sidebar-left,
+    .region-sidebar-right {
+      
+      #desinax-vgrid.column(@columns);
+    }
+
+
+    .footer-column {
+      #desinax-vgrid.column(24 / 3 - 3);
+      #desinax-vgrid.push(2.6);
+    }
+
+    .footer-column-x {
+      #desinax-vgrid.push(0);
+    }
+
+
+   
+ 
+}
+
+
+@media only screen and (max-width: 850px) {
+  .region-main {
+    #desinax-vgrid.column(@columns);
+    #desinax-vgrid.push(0);
+  }
+
+   .region-sidebar-right {
+    #desinax-vgrid.push(0);
+    #desinax-vgrid.column(@columns);
+
+  }
+
+  .footer-column {
+      #desinax-vgrid.push(2.8);
+    }
+
+}
+
+
+
+@media only screen and (max-width: 768px) {
+
+  .footer-column {
+      #desinax-vgrid.push(2.4);
+    }
+
+}
+
+
+@media only screen and (max-width:  415px) {
+  .block {
+   p img {width: 2rem;}
+  }
+  .footer-column {
+    img {width: 2rem;}
+      #desinax-vgrid.push(2.7);
+    }
+
+
+}
+
+
+
+@media only screen and (max-width:  375px) {
+  .block {
+   .avatar {width: 2rem;}
+  }
+  .footer-column {
+    img {width: 2rem;}
+      #desinax-vgrid.push(2.7);
+    }
+
+
+}
